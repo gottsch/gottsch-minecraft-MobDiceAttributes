@@ -18,6 +18,7 @@
 package mod.gottsch.forge.mda.core.setup;
 
 import mod.gottsch.forge.mda.MDA;
+import mod.gottsch.forge.mda.core.config.Config;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
@@ -30,6 +31,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 public class CommonSetup {
 
 	public static void common(final FMLCommonSetupEvent event) {
-		
+		Config.instance.addRollingFileAppender(MDA.MOD_ID);
 	}
 }

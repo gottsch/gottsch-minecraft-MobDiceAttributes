@@ -1,0 +1,49 @@
+# TODO do we want to include setup to be based on dimesions?
+
+#####
+# A RPG Dice formula has the format of: xdn + b. ex. 3d6+5, which translates to 3 six-sided dice plus 5. This has a range of 8-23.
+#####
+
+#####
+# dice type averages
+# formula = (type / 2) + 0.5
+#####
+d4=2.5
+d6=3.5
+d8=4.5
+d10=5.5
+d12=6.5
+d20=10.5
+
+#####
+# 
+#####
+[health]
+	# generic health settings
+	# ------------
+	enable=true
+	# the type of dice to use: 4=d4, 6=d6, etc.
+	# options: 4, 6, 8, 10, 12, 20
+	diceType=6
+	# determines the 'x' and the 'b' or bonus in the equation xdn+b.
+	# the lower the number, the narrower the range of the result.
+	# formula: b = health / rangeFactor
+	# formula: x = round((health-b) / die type average)
+	rangeFactor=2
+	# this is an optional value to add a bonus to the result.
+	# this will alter the mobs attrib value farther from the original value.
+	bonusModifier=0
+	
+	# list of mobs that should receive generic settings modification
+	# supercedes blacklist
+	mobWhitelist = []
+	# list of mobs that should not receive generic settings modification
+	mobBlacklist = ["minecraft:creeper"]
+	
+	# mob specific settings
+	# supercedes whitelist and blacklist
+	[[mobs]]
+		name="minecraft:zombie"
+		diceType=8
+		rangeFactor=2
+		bonus=1
