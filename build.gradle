@@ -24,7 +24,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
-   mappings channel: 'official', version: '1.19.3'
+   mappings channel: 'official', version: '1.19.2'
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
 
@@ -124,12 +124,12 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.3-44.1.0'
+    minecraft 'net.minecraftforge:forge:1.19.2-43.2.0'
   //  annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    compileOnly fg.deobf("someguyssoftware.gottschcore:GottschCore:mc1.19.3-f44.1.0-v2.0.0")
-    compileOnly fg.deobf("curse.maven:enemy-echelons-656060:4389256")
-    compileOnly fg.deobf("curse.maven:jade-324717:4330163")
-	compileOnly fg.deobf("curse.maven:compass-coords-368398:4036293")
+    compileOnly fg.deobf("someguyssoftware.gottschcore:GottschCore:mc1.19.2-f43.2.0-v2.0.0")
+    compileOnly fg.deobf("curse.maven:enemy-echelons-656060:4389117")
+    compileOnly fg.deobf("curse.maven:jade-324717:4375714")
+	//compileOnly fg.deobf("curse.maven:compass-coords-368398:4036293")
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
