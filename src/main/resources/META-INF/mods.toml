@@ -8,7 +8,7 @@ modId="mobdiceattribs" #mandatory
 version="1.0.1" #mandatory
  # A display name for the mod
 displayName="Mob Dice Attributes" #mandatory
-updateJSONURL="https://raw.githubusercontent.com/gottsch/gottsch-minecraft-MobDiceAttributes/1.19.3-main/update.json"
+updateJSONURL="https://raw.githubusercontent.com/gottsch/gottsch-minecraft-MobDiceAttributes/1.19.2-main/update.json"
 logoFile="mobdiceattribs.png" #optional
 # A text field displayed in the mod UI
 credits="" #optional
