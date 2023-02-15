@@ -1,5 +1,5 @@
 modLoader="javafml" #mandatory
-loaderVersion="[43,)" #mandatory 
+loaderVersion="[40,)" #mandatory 
 license="LGPL v3"
 issueTrackerURL="https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/issues"
 [[mods]] #mandatory
@@ -8,7 +8,7 @@ modId="mobdiceattribs" #mandatory
 version="1.0.0" #mandatory
  # A display name for the mod
 displayName="Mob Dice Attributes" #mandatory
-updateJSONURL="https://raw.githubusercontent.com/gottsch/gottsch-minecraft-MobDiceAttributes/1.19.3-main/update.json"
+updateJSONURL="https://raw.githubusercontent.com/gottsch/gottsch-minecraft-MobDiceAttributes/1.18.2-main/update.json"
 logoFile="mobdiceattribs.png" #optional
 # A text field displayed in the mod UI
 credits="" #optional
@@ -25,7 +25,7 @@ description='''
     # Does this dependency have to exist - if not, ordering below must be specified
     mandatory=true #mandatory
     # The version range of the dependency
-    versionRange="[43,)" #mandatory
+    versionRange="[40,)" #mandatory
     # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
@@ -35,7 +35,7 @@ description='''
     modId="minecraft"
     mandatory=true
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
-    versionRange="[1.19.2,1.20)"
+    versionRange="[1.18.2,1.19)"
     ordering="NONE"
     side="SERVER"
 [[dependencies.mageflame]]

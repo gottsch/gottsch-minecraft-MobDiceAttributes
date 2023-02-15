@@ -24,7 +24,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
-   mappings channel: 'official', version: '1.19.2'
+   mappings channel: 'official', version: '1.18.2'
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
 
@@ -124,11 +124,11 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.2-43.2.0'
+    minecraft 'net.minecraftforge:forge:1.18.2-40.1.0'
   //  annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    compileOnly fg.deobf("someguyssoftware.gottschcore:GottschCore:mc1.19.2-f43.2.0-v2.0.0")
-    compileOnly fg.deobf("curse.maven:enemy-echelons-656060:4389117")
-    compileOnly fg.deobf("curse.maven:jade-324717:4375714")
+    compileOnly fg.deobf("someguyssoftware.gottschcore:GottschCore:mc1.18.2-f40.1.0-v2.0.0")
+    //compileOnly fg.deobf("curse.maven:enemy-echelons-656060:4389117")
+    compileOnly fg.deobf("curse.maven:jade-324717:4082408")
 	//compileOnly fg.deobf("curse.maven:compass-coords-368398:4036293")
 }
 

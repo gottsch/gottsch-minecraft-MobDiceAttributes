@@ -6,7 +6,7 @@ import mod.gottsch.forge.mda.core.manager.DiceAttributeManger;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
-import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -20,9 +20,9 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 public class WorldEvents {
 	private static final String ROLLED = new ResourceLocation(MDA.MOD_ID, "rolled").toString();
 	@SubscribeEvent
-	public static void onJoin(EntityJoinLevelEvent event) {
+	public static void onJoin(EntityJoinWorldEvent event) {
 		
-		if (WorldInfo.isClientSide(event.getLevel())) {
+		if (WorldInfo.isClientSide(event.getWorld())) {
 			return;
 		}
 		
