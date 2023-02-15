@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/
 [[mods]] #mandatory
 # The modid of the mod
 modId="mobdiceattribs" #mandatory
-version="1.0.0" #mandatory
+version="1.0.1" #mandatory
  # A display name for the mod
 displayName="Mob Dice Attributes" #mandatory
 updateJSONURL="https://raw.githubusercontent.com/gottsch/gottsch-minecraft-MobDiceAttributes/1.19.3-main/update.json"
