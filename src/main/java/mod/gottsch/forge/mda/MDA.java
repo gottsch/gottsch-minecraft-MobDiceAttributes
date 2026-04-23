@@ -20,17 +20,13 @@ package mod.gottsch.forge.mda;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.electronwill.nightconfig.core.CommentedConfig;
-
 import mod.gottsch.forge.mda.core.config.Config;
 import mod.gottsch.forge.mda.core.setup.CommonSetup;
 import mod.gottsch.forge.mda.core.setup.Registration;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.IConfigSpec;
 import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.config.ModConfig.Type;
 import net.neoforged.fml.event.config.ModConfigEvent;
 
 /**
@@ -68,18 +64,10 @@ public class MDA {
 	 * @param event
 	 */
 	private void config(final ModConfigEvent event) {
-		if (event.getConfig().getModId().equals(MOD_ID)) {
-			if (event.getConfig().getType() == Type.SERVER) {
-				IConfigSpec spec = event.getConfig().getSpec();
-				// get the toml config data
-				CommentedConfig commentedConfig = event.getConfig().getConfigData();
-
-				if (spec == Config.SERVER_CONFIG) {
-					LOGGER.debug("validating config...");
-					// validate the config
-					Config.validate(Config.SERVER);
-				}
-			}
+		if (event.getConfig().getModId().equals(MOD_ID) &&
+				event.getConfig().getType() == ModConfig.Type.SERVER) {
+			LOGGER.debug("validating config...");
+			Config.validate(Config.SERVER);
 		}
 	}
 }
