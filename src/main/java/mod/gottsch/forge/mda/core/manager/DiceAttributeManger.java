@@ -1,6 +1,6 @@
 package mod.gottsch.forge.mda.core.manager;
 
-import mod.gottsch.forge.gottschcore.random.RandomHelper;
+import mod.gottsch.neo.gottschcore.random.RandomHelper;
 import mod.gottsch.forge.mda.core.config.Config;
 import mod.gottsch.forge.mda.core.enums.DiceType;
 import net.minecraft.world.entity.Entity;

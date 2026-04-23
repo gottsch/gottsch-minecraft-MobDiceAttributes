@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import mod.gottsch.forge.gottschcore.config.AbstractConfig;
+import mod.gottsch.neo.gottschcore.config.AbstractConfig;
 import mod.gottsch.forge.mda.core.enums.DiceType;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;

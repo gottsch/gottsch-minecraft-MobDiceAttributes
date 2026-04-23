@@ -16,7 +16,7 @@ description='''A Minecraft mod that converts base mod attribute values using RPG
 [[dependencies.mobdiceattribs]]
     modId="neoforge"
     mandatory=true
-    versionRange="${neoforge_version_range}"
+    versionRange="${neo_version_range}"
     ordering="NONE"
     side="SERVER"
 

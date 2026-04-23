@@ -1,6 +1,6 @@
 package mod.gottsch.forge.mda.core.event;
 
-import mod.gottsch.forge.gottschcore.world.WorldInfo;
+import mod.gottsch.neo.gottschcore.world.WorldInfo;
 import mod.gottsch.forge.mda.MDA;
 import mod.gottsch.forge.mda.core.manager.DiceAttributeManger;
 import net.minecraft.nbt.CompoundTag;
