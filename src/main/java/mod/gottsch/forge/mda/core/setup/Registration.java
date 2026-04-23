@@ -17,20 +17,18 @@
  */
 package mod.gottsch.forge.mda.core.setup;
 
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.bus.api.IEventBus;
 
 /**
- * 
+ *
  * @author Mark Gottschling Feb 8, 2023
  *
  */
 public class Registration {
 
 	/**
-	 * 
+	 *
 	 */
-	public static void init() {
-		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+	public static void init(IEventBus modEventBus) {
 	}
 }

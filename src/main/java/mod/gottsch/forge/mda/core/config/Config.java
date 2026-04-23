@@ -18,7 +18,6 @@
 package mod.gottsch.forge.mda.core.config;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -27,11 +26,11 @@ import mod.gottsch.forge.gottschcore.config.AbstractConfig;
 import mod.gottsch.forge.mda.core.enums.DiceType;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
+import net.neoforged.neoforge.common.ModConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec.ConfigValue;
 
 /**
- * 
+ *
  * @author Mark Gottschling Feb 8, 2023
  *
  */
@@ -39,11 +38,11 @@ public class Config extends AbstractConfig {
 	public static final String CATEGORY_DIV = "##############################";
 	public static final String UNDERLINE_DIV = "------------------------------";
 
-	protected static final ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
-	protected static final ForgeConfigSpec.Builder SERVER_BUILDER = new ForgeConfigSpec.Builder();
+	protected static final ModConfigSpec.Builder COMMON_BUILDER = new ModConfigSpec.Builder();
+	protected static final ModConfigSpec.Builder SERVER_BUILDER = new ModConfigSpec.Builder();
 
-	public static ForgeConfigSpec COMMON_CONFIG;
-	public static ForgeConfigSpec SERVER_CONFIG;
+	public static ModConfigSpec COMMON_CONFIG;
+	public static ModConfigSpec SERVER_CONFIG;
 
 	public static final Logging LOGGING;
 	public static final ServerConfig SERVER;
@@ -58,7 +57,7 @@ public class Config extends AbstractConfig {
 	}
 
 	/*
-	 * 
+	 *
 	 */
 	public static class ServerConfig {
 
@@ -67,7 +66,7 @@ public class Config extends AbstractConfig {
 		public DamageConfig damage;
 		public KnockbackConfig knockback;
 
-		public ServerConfig(ForgeConfigSpec.Builder builder) {
+		public ServerConfig(ModConfigSpec.Builder builder) {
 			health = new HealthConfig(builder);
 			speed = new SpeedConfig(builder);
 			damage = new DamageConfig(builder);
@@ -76,18 +75,18 @@ public class Config extends AbstractConfig {
 	}
 
 	/*
-	 * 
+	 *
 	 */
 	public static abstract class AttribConfig {
-		public ForgeConfigSpec.BooleanValue enable;
+		public ModConfigSpec.BooleanValue enable;
 		public ConfigValue<Integer> diceType;
-		public ForgeConfigSpec.DoubleValue rangeFactor;
-		public ForgeConfigSpec.DoubleValue bonus;
+		public ModConfigSpec.DoubleValue rangeFactor;
+		public ModConfigSpec.DoubleValue bonus;
 
 		public ConfigValue<List<? extends String>> mobWhitelist;
 		public ConfigValue<List<? extends String>> mobBlacklist;
-		
-		public void configure(ForgeConfigSpec.Builder builder) {
+
+		public void configure(ModConfigSpec.Builder builder) {
 
 			enable = builder
 					.comment(" Enables modification for this attribute.")
@@ -101,13 +100,13 @@ public class Config extends AbstractConfig {
 
 			rangeFactor = builder
 					.comment("the range factor")
-					.defineInRange("rangeFactor", 2D, 2D, 10D);	
-			
+					.defineInRange("rangeFactor", 2D, 2D, 10D);
+
 			mobWhitelist = builder
 					.comment(" Permitted mobs for that should receive attribute modification.",
 							" ex. minecraft:zombie")
 					.defineList("mobWhitelist", new ArrayList<String>(), s -> s instanceof String);
-			
+
 			mobBlacklist = builder
 					.comment(" Denied mobs for that should not receive attribute modification.",
 							" ex. minecraft:ghast")
@@ -116,10 +115,10 @@ public class Config extends AbstractConfig {
 	}
 
 	/*
-	 * 
+	 *
 	 */
 	public static class HealthConfig extends AttribConfig {
-		public HealthConfig(ForgeConfigSpec.Builder builder) {
+		public HealthConfig(ModConfigSpec.Builder builder) {
 
 			builder.comment(CATEGORY_DIV, "Health Dice Properties", CATEGORY_DIV)
 			.push("health");
@@ -130,20 +129,20 @@ public class Config extends AbstractConfig {
 		}
 
 		@Override
-		public void configure(ForgeConfigSpec.Builder builder) {
+		public void configure(ModConfigSpec.Builder builder) {
 			super.configure(builder);
 
 			bonus = builder
 					.comment("bonus")
-					.defineInRange("bonus", 0, 0, ((RangedAttribute)Attributes.MAX_HEALTH).getMaxValue());
+					.defineInRange("bonus", 0, 0, ((RangedAttribute) Attributes.MAX_HEALTH.value()).getMaxValue());
 		}
 	}
-	
+
 	/*
-	 * 
+	 *
 	 */
 	public static class SpeedConfig extends AttribConfig {
-		public SpeedConfig(ForgeConfigSpec.Builder builder) {
+		public SpeedConfig(ModConfigSpec.Builder builder) {
 
 			builder.comment(CATEGORY_DIV, "Speed Dice Properties", CATEGORY_DIV)
 			.push("speed");
@@ -154,17 +153,17 @@ public class Config extends AbstractConfig {
 		}
 
 		@Override
-		public void configure(ForgeConfigSpec.Builder builder) {
+		public void configure(ModConfigSpec.Builder builder) {
 			super.configure(builder);
 
 			bonus = builder
 					.comment("bonus")
-					.defineInRange("bonus", 0, 0, ((RangedAttribute)Attributes.MOVEMENT_SPEED).getMaxValue());
+					.defineInRange("bonus", 0, 0, ((RangedAttribute) Attributes.MOVEMENT_SPEED.value()).getMaxValue());
 		}
 	}
 
 	public static class DamageConfig extends AttribConfig {
-		public DamageConfig(ForgeConfigSpec.Builder builder) {
+		public DamageConfig(ModConfigSpec.Builder builder) {
 
 			builder.comment(CATEGORY_DIV, "Damage Dice Properties", CATEGORY_DIV)
 			.push("damage");
@@ -173,19 +172,19 @@ public class Config extends AbstractConfig {
 
 			builder.pop();
 		}
-		
+
 		@Override
-		public void configure(ForgeConfigSpec.Builder builder) {
+		public void configure(ModConfigSpec.Builder builder) {
 			super.configure(builder);
 
 			bonus = builder
 					.comment("bonus")
-					.defineInRange("bonus", 0, 0, ((RangedAttribute)Attributes.ATTACK_DAMAGE).getMaxValue());
+					.defineInRange("bonus", 0, 0, ((RangedAttribute) Attributes.ATTACK_DAMAGE.value()).getMaxValue());
 		}
 	}
-	
+
 	public static class KnockbackConfig extends AttribConfig {
-		public KnockbackConfig(ForgeConfigSpec.Builder builder) {
+		public KnockbackConfig(ModConfigSpec.Builder builder) {
 
 			builder.comment(CATEGORY_DIV, "Attack Knockback Dice Properties", CATEGORY_DIV)
 			.push("knockback");
@@ -194,17 +193,17 @@ public class Config extends AbstractConfig {
 
 			builder.pop();
 		}
-		
+
 		@Override
-		public void configure(ForgeConfigSpec.Builder builder) {
+		public void configure(ModConfigSpec.Builder builder) {
 			super.configure(builder);
 
 			bonus = builder
 					.comment("bonus")
-					.defineInRange("bonus", 0, 0, ((RangedAttribute)Attributes.ATTACK_KNOCKBACK).getMaxValue());
+					.defineInRange("bonus", 0, 0, ((RangedAttribute) Attributes.ATTACK_KNOCKBACK.value()).getMaxValue());
 		}
 	}
-	
+
 	// TODO move validate method into config classes
 	public static void validate(ServerConfig config) {
 		if (config.health.enable.get()) {
@@ -213,21 +212,21 @@ public class Config extends AbstractConfig {
 				config.health.diceType.set(dice);
 			}
 		}
-		
+
 		if (config.speed.enable.get()) {
 			Integer dice = DiceType.validate(config.speed.diceType.get());
 			if (dice != config.speed.diceType.get()) {
 				config.speed.diceType.set(dice);
 			}
 		}
-		
+
 		if (config.damage.enable.get()) {
 			Integer dice = DiceType.validate(config.damage.diceType.get());
 			if (dice != config.damage.diceType.get()) {
 				config.damage.diceType.set(dice);
 			}
 		}
-		
+
 		if (config.knockback.enable.get()) {
 			Integer dice = DiceType.validate(config.knockback.diceType.get());
 			if (dice != config.knockback.diceType.get()) {
