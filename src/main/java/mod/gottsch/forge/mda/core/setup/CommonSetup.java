@@ -19,15 +19,15 @@ package mod.gottsch.forge.mda.core.setup;
 
 import mod.gottsch.forge.mda.MDA;
 import mod.gottsch.forge.mda.core.config.Config;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 /**
- * 
+ *
  * @author Mark Gottschling Feb 8, 2023
  *
  */
-@Mod.EventBusSubscriber(modid = MDA.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = MDA.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class CommonSetup {
 
 	public static void common(final FMLCommonSetupEvent event) {

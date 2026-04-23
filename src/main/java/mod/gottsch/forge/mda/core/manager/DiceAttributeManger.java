@@ -8,23 +8,22 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
 
 /**
- * 
+ *
  * @author Mark Gottschling Feb 8, 2023
  *
  */
 public class DiceAttributeManger {
 
 	/**
-	 * 
+	 *
 	 * @param entity
 	 * @return
 	 */
 	public static boolean isValidEntity(final Entity entity) {
-		return entity instanceof LivingEntity && (entity instanceof Monster || entity instanceof Enemy);
+		return entity instanceof Monster;
 	}
 
 	public static void applyRolls(Entity entity) {
@@ -35,19 +34,19 @@ public class DiceAttributeManger {
 							!Config.SERVER.health.mobBlacklist.get().contains(key))) {
 				rollHealth(entity);
 			}
-			
+
 			if (Config.SERVER.speed.mobWhitelist.get().contains(key) ||
 					(Config.SERVER.speed.mobWhitelist.get().isEmpty() &&
 							!Config.SERVER.speed.mobBlacklist.get().contains(key))) {
 				rollSpeed(entity);
 			}
-			
+
 			if (Config.SERVER.damage.mobWhitelist.get().contains(key) ||
 					(Config.SERVER.damage.mobWhitelist.get().isEmpty() &&
 							!Config.SERVER.damage.mobBlacklist.get().contains(key))) {
 				rollAttackDamage(entity);
 			}
-			
+
 			if (Config.SERVER.knockback.mobWhitelist.get().contains(key) ||
 					(Config.SERVER.knockback.mobWhitelist.get().isEmpty() &&
 							!Config.SERVER.knockback.mobBlacklist.get().contains(key))) {
@@ -57,28 +56,28 @@ public class DiceAttributeManger {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param entity
 	 */
 	private static void rollHealth(Entity entity) {
-		LivingEntity monster = (LivingEntity)entity;
+		LivingEntity monster = (LivingEntity) entity;
 		AttributeInstance attribute = monster.getAttribute(Attributes.MAX_HEALTH);
 		if (attribute != null) {
 			float hp = monster.getMaxHealth();
 			float rangeBonus = (float) (hp / Config.SERVER.health.rangeFactor.get());
 			int dice = Math.round((hp - rangeBonus) / DiceType.valueOf(Config.SERVER.health.diceType.get()).getAvg());
-			float newHealth =  ((float) roll(dice, Config.SERVER.health.diceType.get())) + rangeBonus + Config.SERVER.health.bonus.get().floatValue();
+			float newHealth = ((float) roll(dice, Config.SERVER.health.diceType.get())) + rangeBonus + Config.SERVER.health.bonus.get().floatValue();
 			attribute.setBaseValue(newHealth);
 			monster.setHealth(monster.getMaxHealth());
 		}
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param entity
 	 */
 	private static void rollSpeed(Entity entity) {
-		LivingEntity monster = (LivingEntity)entity;
+		LivingEntity monster = (LivingEntity) entity;
 		AttributeInstance attribute = monster.getAttribute(Attributes.MOVEMENT_SPEED);
 		if (attribute != null) {
 			float speed = monster.getSpeed();
@@ -90,17 +89,16 @@ public class DiceAttributeManger {
 			float newValue = 0;
 			if (dice < 1F) {
 				newValue = dice * roll(1, Config.SERVER.speed.diceType.get()) + rangeBonus + Config.SERVER.speed.bonus.get().floatValue();
-			}
-			else {
+			} else {
 				newValue = ((float) roll(Math.round(dice), Config.SERVER.speed.diceType.get())) + rangeBonus + Config.SERVER.speed.bonus.get().floatValue();
 			}
 			attribute.setBaseValue(newValue);
 			monster.setSpeed(newValue);
 		}
 	}
-	
+
 	private static void rollAttackDamage(Entity entity) {
-		LivingEntity monster = (LivingEntity)entity;
+		LivingEntity monster = (LivingEntity) entity;
 		AttributeInstance attribute = monster.getAttribute(Attributes.ATTACK_DAMAGE);
 		if (attribute != null) {
 			double damage = attribute.getBaseValue();
@@ -109,16 +107,16 @@ public class DiceAttributeManger {
 			}
 			float rangeBonus = (float) (damage / Config.SERVER.damage.rangeFactor.get());
 			int dice = (int) Math.round((damage - rangeBonus) / DiceType.valueOf(Config.SERVER.damage.diceType.get()).getAvg());
-			float newValue =  ((float) roll(dice, Config.SERVER.damage.diceType.get())) + rangeBonus + Config.SERVER.damage.bonus.get().floatValue();
+			float newValue = ((float) roll(dice, Config.SERVER.damage.diceType.get())) + rangeBonus + Config.SERVER.damage.bonus.get().floatValue();
 			attribute.setBaseValue(newValue);
 		}
 	}
-	
+
 	/*
-	 * 
+	 *
 	 */
 	private static void rollKnockback(Entity entity) {
-		LivingEntity monster = (LivingEntity)entity;
+		LivingEntity monster = (LivingEntity) entity;
 		AttributeInstance attribute = monster.getAttribute(Attributes.ATTACK_KNOCKBACK);
 		if (attribute != null) {
 			double knockback = attribute.getBaseValue();
@@ -130,16 +128,15 @@ public class DiceAttributeManger {
 			double newValue = 0;
 			if (dice < 1) {
 				newValue = dice * roll(1, Config.SERVER.knockback.diceType.get()) + rangeBonus + Config.SERVER.knockback.bonus.get();
-			}
-			else {
-				newValue = roll((int)Math.round(dice), Config.SERVER.knockback.diceType.get()) + rangeBonus + Config.SERVER.knockback.bonus.get();
+			} else {
+				newValue = roll((int) Math.round(dice), Config.SERVER.knockback.diceType.get()) + rangeBonus + Config.SERVER.knockback.bonus.get();
 			}
 			attribute.setBaseValue(newValue);
 		}
 	}
 
 	/**
-	 * 
+	 *
 	 * @param num
 	 * @param diceType
 	 * @return
