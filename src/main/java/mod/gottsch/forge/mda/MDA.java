@@ -27,7 +27,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.event.config.ModConfigEvent;
 
 /**
  *
@@ -55,19 +54,5 @@ public class MDA {
 
 		// Register the setup method for modloading
 		modEventBus.addListener(CommonSetup::common);
-		modEventBus.addListener(this::config);
-		// TODO add config listener to check config settings to ensure they are correct.
-	}
-
-	/**
-	 * On a config event.
-	 * @param event
-	 */
-	private void config(final ModConfigEvent event) {
-		if (event.getConfig().getModId().equals(MOD_ID) &&
-				event.getConfig().getType() == ModConfig.Type.SERVER) {
-			LOGGER.debug("validating config...");
-			Config.validate(Config.SERVER);
-		}
 	}
 }

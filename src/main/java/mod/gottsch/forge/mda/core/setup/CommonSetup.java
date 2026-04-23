@@ -27,7 +27,6 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
  * @author Mark Gottschling Feb 8, 2023
  *
  */
-@EventBusSubscriber(modid = MDA.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class CommonSetup {
 
 	public static void common(final FMLCommonSetupEvent event) {
