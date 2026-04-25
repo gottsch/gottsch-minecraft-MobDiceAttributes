@@ -1,0 +1,14 @@
+{
+	"_comment": "Example mob override. Copy into any datapack to customize dice formulas per mob or per tag. Any omitted field falls through to the attribute's global config value. Prefix a target with '#' to match an entity tag.",
+	"targets": [
+		"minecraft:ender_dragon"
+	],
+	"health": {
+		"dice": 20,
+		"rangeFactor": 3.0,
+		"bonus": 50.0
+	},
+	"damage": {
+		"dice": 12
+	}
+}

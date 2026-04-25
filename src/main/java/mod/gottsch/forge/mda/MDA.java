@@ -17,9 +17,6 @@
  */
 package mod.gottsch.forge.mda;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import mod.gottsch.forge.mda.core.config.Config;
 import mod.gottsch.forge.mda.core.setup.CommonSetup;
 import mod.gottsch.forge.mda.core.setup.Registration;
@@ -27,6 +24,8 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *

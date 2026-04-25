@@ -1,0 +1,46 @@
+{
+	"_comment": "Example showing all supported attribute overrides. Targets a non-existent mob so this file is safe to ship without affecting gameplay. Copy and adapt for real mob IDs or entity tags (prefix tags with '#'). All attribute sections and all fields within them are optional — omit any you do not want to override.",
+	"targets": [
+		"mobdiceattribs:example_mob"
+	],
+	"health": {
+		"dice": 8,
+		"rangeFactor": 2.0,
+		"bonus": 0.0
+	},
+	"speed": {
+		"dice": 6,
+		"rangeFactor": 2.0,
+		"bonus": 0.0
+	},
+	"damage": {
+		"dice": 6,
+		"rangeFactor": 2.0,
+		"bonus": 0.0
+	},
+	"knockback": {
+		"dice": 4,
+		"rangeFactor": 2.0,
+		"bonus": 0.0
+	},
+	"armor": {
+		"dice": 6,
+		"rangeFactor": 2.0,
+		"bonus": 0.0
+	},
+	"armorToughness": {
+		"dice": 4,
+		"rangeFactor": 2.0,
+		"bonus": 0.0
+	},
+	"attackSpeed": {
+		"dice": 6,
+		"rangeFactor": 2.0,
+		"bonus": 0.0
+	},
+	"followRange": {
+		"dice": 6,
+		"rangeFactor": 2.0,
+		"bonus": 0.0
+	}
+}
