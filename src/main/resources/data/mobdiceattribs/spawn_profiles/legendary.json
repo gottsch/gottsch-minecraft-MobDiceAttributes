@@ -1,0 +1,15 @@
+{
+  "_comment": "Legendary tier — elite threat, major loot and XP rewards.",
+  "namePrefix":     "Legendary",
+  "nameColor":      "dark_purple",
+  "xpMultiplier":   5.0,
+  "lootBonusRolls": 3,
+  "health":         { "dice": 20, "rangeFactor": 1.2, "bonus": 0.0 },
+  "speed":          { "dice": 8,  "rangeFactor": 1.5 },
+  "damage":         { "dice": 12, "rangeFactor": 1.2 },
+  "knockback":      { "dice": 8 },
+  "armor":          { "dice": 6,  "rangeFactor": 2.0 },
+  "armorToughness": { "dice": 6 },
+  "attackSpeed":    { "dice": 8 },
+  "followRange":    { "dice": 10, "rangeFactor": 1.5 }
+}

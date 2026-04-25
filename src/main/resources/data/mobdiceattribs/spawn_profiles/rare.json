@@ -1,0 +1,11 @@
+{
+  "_comment": "Rare tier — noticeably tougher, extra loot and XP.",
+  "namePrefix":     "Rare",
+  "nameColor":      "blue",
+  "xpMultiplier":   2.0,
+  "lootBonusRolls": 1,
+  "health":  { "dice": 10, "rangeFactor": 1.2, "bonus": 0.0 },
+  "speed":   { "dice": 6,  "rangeFactor": 1.2 },
+  "damage":  { "dice": 8,  "rangeFactor": 1.2 },
+  "armor":   { "dice": 4,  "rangeFactor": 1.5 }
+}
