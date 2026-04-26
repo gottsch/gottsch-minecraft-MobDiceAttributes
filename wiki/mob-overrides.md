@@ -14,7 +14,7 @@ data/mobdiceattribs/mob_overrides/<name>.json
 
 You can have as many files as you like. Each file can target multiple mobs.
 
-> Files must use the `mobdiceattribs` namespace. See [Spawn Profiles — Datapack Namespacing](spawn-profiles#datapack-namespacing).
+> Files must use the `mobdiceattribs` namespace. See [Spawn Profiles — Datapack Namespacing](spawn-profiles.md#datapack-namespacing).
 
 ---
 
