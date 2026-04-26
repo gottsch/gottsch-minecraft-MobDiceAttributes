@@ -9,15 +9,15 @@ works, how to configure it, and how to create datapacks that customize mob behav
 
 | Page | What it covers |
 |------|---------------|
-| [Dice Formula](dice-formula) | How `xdn + b` works and why average always equals vanilla |
-| [Spawn Profiles](spawn-profiles) | Named stat bundles applied to mobs on spawn |
-| [Rarity Tiers](rarity-tiers) | Weighted random profile selection on every spawn |
-| [Spawn Hooks](spawn-hooks) | Assign profiles by spawn context (natural, spawner, raid…) |
-| [Mob Overrides](mob-overrides) | Per-mob or per-tag dice overrides via datapack |
-| [Dimension Rules](dimension-rules) | Scale or disable rolling per dimension |
-| [Difficulty Rules](difficulty-rules) | Scale or disable rolling per world difficulty |
-| [Configuration](configuration) | Full `server.toml` reference |
-| [Commands](commands) | `/mda reroll` and `/mda inspect` |
+| [Dice Formula](dice-formula.md) | How `xdn + b` works and why average always equals vanilla |
+| [Spawn Profiles](spawn-profiles.md) | Named stat bundles applied to mobs on spawn |
+| [Rarity Tiers](rarity-tiers.md) | Weighted random profile selection on every spawn |
+| [Spawn Hooks](spawn-hooks.md) | Assign profiles by spawn context (natural, spawner, raid…) |
+| [Mob Overrides](mob-overrides.md) | Per-mob or per-tag dice overrides via datapack |
+| [Dimension Rules](dimension-rules.md) | Scale or disable rolling per dimension |
+| [Difficulty Rules](difficulty-rules.md) | Scale or disable rolling per world difficulty |
+| [Configuration](configuration.md) | Full `server.toml` reference |
+| [Commands](commands.md) | `/mda reroll` and `/mda inspect` |
 
 ---
 
