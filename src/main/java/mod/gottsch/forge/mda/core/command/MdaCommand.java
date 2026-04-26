@@ -75,6 +75,14 @@ public class MdaCommand {
 		if (baseHp > 0) {
 			sb.append(String.format("Base HP:     %.2f\n", baseHp));
 		}
+		String profile = entity.getPersistentData().getString("mda_profile");
+		if (!profile.isEmpty()) {
+			sb.append("Profile:     ").append(profile).append("\n");
+		}
+		String spawnType = entity.getPersistentData().getString("mda_spawn_type");
+		if (!spawnType.isEmpty()) {
+			sb.append("Spawn type:  ").append(spawnType).append("\n");
+		}
 
 		ctx.getSource().sendSuccess(() -> Component.literal(sb.toString()), false);
 		return 1;
