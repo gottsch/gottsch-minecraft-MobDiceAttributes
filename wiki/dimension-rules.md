@@ -15,7 +15,7 @@ data/mobdiceattribs/dimension_rules/<name>.json
 
 The feature is inert without any datapack files — no config flag required.
 
-> Files must use the `mobdiceattribs` namespace. See [Spawn Profiles — Datapack Namespacing](spawn-profiles#datapack-namespacing).
+> Files must use the `mobdiceattribs` namespace. See [Spawn Profiles — Datapack Namespacing](spawn-profiles.md#datapack-namespacing).
 
 ---
 
@@ -39,8 +39,8 @@ The feature is inert without any datapack files — no config flag required.
 
 ## How Multipliers Stack
 
-Dimension multipliers stack multiplicatively with [Difficulty Rule](difficulty-rules)
-multipliers and [Distance Scaling](configuration#distance-scaling) (health only):
+Dimension multipliers stack multiplicatively with [Difficulty Rules](difficulty-rules.md)
+multipliers and [Distance Scaling](configuration.md#distance-scaling) (health only):
 
 ```
 healthMultiplier  = dimMultiplier × diffMultiplier × distanceMultiplier
@@ -75,7 +75,7 @@ dimension — the mob spawns with vanilla attribute values.
 }
 ```
 
-## Example: Disable Rolling in Peaceful Dimensions
+## Example: Disable Rolling in the Overworld
 
 ```json
 {

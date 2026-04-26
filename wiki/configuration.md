@@ -23,9 +23,9 @@ mobBlacklist = []
 | Field | Default | Description |
 |-------|---------|-------------|
 | `enable` | `true` | Enables dice rolling for this attribute |
-| `autoDice` | `true` | Picks die type automatically by vanilla value. See [Dice Formula](dice-formula#auto-dice-selection). |
+| `autoDice` | `true` | Picks die type automatically by vanilla value. See [Dice Formula](dice-formula.md#auto-dice-selection). |
 | `diceType` | `6` | Fallback die when `autoDice = false`. Valid values: `4`, `6`, `8`, `10`, `12`, `20` |
-| `rangeFactor` | `2.0` | Controls spread of rolls. Higher = less swingy. See [Dice Formula](dice-formula#what-is-rangefactor). |
+| `rangeFactor` | `2.0` | Controls spread of rolls. Higher = less swingy. See [Dice Formula](dice-formula.md#what-is-rangefactor). |
 | `bonus` | `0.0` | Flat value added to every roll for this attribute |
 | `mobWhitelist` | `[]` | If non-empty, only these mobs roll this attribute. Example: `["minecraft:zombie"]` |
 | `mobBlacklist` | `[]` | Mobs that never roll this attribute. Used when whitelist is empty. |
@@ -95,7 +95,7 @@ enable = true
 ```
 
 Enables the weighted rarity draw on every mob spawn. Requires a `rarity_tiers/`
-datapack file to have any effect. See [Rarity Tiers](rarity-tiers).
+datapack file to have any effect. See [Rarity Tiers](rarity-tiers.md).
 
 ---
 
@@ -107,7 +107,7 @@ enable = true
 ```
 
 Enables context-based profile assignment. Requires a `spawn_hooks/` datapack file.
-See [Spawn Hooks](spawn-hooks).
+See [Spawn Hooks](spawn-hooks.md).
 
 ---
 

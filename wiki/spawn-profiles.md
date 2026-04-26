@@ -2,7 +2,7 @@
 
 A **spawn profile** is a named bundle of settings applied to a mob when it spawns.
 Think of it like a character class template: define it once, give it a name, and
-tell the mod when to use it via [Rarity Tiers](rarity-tiers) or [Spawn Hooks](spawn-hooks).
+tell the mod when to use it via [Rarity Tiers](rarity-tiers.md) or [Spawn Hooks](spawn-hooks.md).
 
 ---
 
@@ -57,7 +57,7 @@ Each attribute section (`health`, `speed`, `damage`, `knockback`, `armor`,
 | Field | Type | Description |
 |-------|------|-------------|
 | `dice` | integer | Die size: `4`, `6`, `8`, `10`, `12`, or `20` |
-| `rangeFactor` | number | Spread of rolls. Higher = less swingy. See [Dice Formula](dice-formula). |
+| `rangeFactor` | number | Spread of rolls. Higher = less swingy. See [Dice Formula](dice-formula.md). |
 | `bonus` | number | Flat value added on top of every roll |
 
 ---
@@ -94,9 +94,9 @@ Per-mob override (mob_overrides/)   ← highest priority
 profile sets `"rangeFactor": 1.2` for health, the zombie gets both — d20 from the
 override and rangeFactor 1.2 from the profile.
 
-If a profile sets `namePrefix`, it replaces the global [Elite Mobs](configuration#elite-mobs)
+If a profile sets `namePrefix`, it replaces the global [Elite Mobs](configuration.md#elite-mobs)
 name for that mob. If a profile sets `lootBonusRolls` or `xpMultiplier`, it replaces
-the global [Loot Scaling](configuration#loot-scaling) for that mob.
+the global [Loot Scaling](configuration.md#loot-scaling) for that mob.
 
 ---
 

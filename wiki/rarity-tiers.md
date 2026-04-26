@@ -1,6 +1,6 @@
 # Rarity Tiers
 
-Rarity tiers let you assign [Spawn Profiles](spawn-profiles) by chance. Every time
+Rarity tiers let you assign [Spawn Profiles](spawn-profiles.md) by chance. Every time
 an eligible mob spawns, the mod does one weighted random draw from your tier pool and
 applies the winning profile to that mob.
 
@@ -26,7 +26,7 @@ flag and mobs will immediately start drawing from it.
 data/mobdiceattribs/rarity_tiers/<name>.json
 ```
 
-> Files must use the `mobdiceattribs` namespace. See [Spawn Profiles — Datapack Namespacing](spawn-profiles#datapack-namespacing).
+> Files must use the `mobdiceattribs` namespace. See [Spawn Profiles — Datapack Namespacing](spawn-profiles.md#datapack-namespacing).
 
 ---
 
@@ -43,7 +43,7 @@ data/mobdiceattribs/rarity_tiers/<name>.json
 }
 ```
 
-- `profile` — the ID of the [Spawn Profile](spawn-profiles) to apply
+- `profile` — the ID of the [Spawn Profile](spawn-profiles.md) to apply
 - `weight` — relative probability. Weights do not need to sum to 100.
 
 ### Default pool probabilities
@@ -88,7 +88,7 @@ datapack. Your file replaces the mod's default pool for that datapack's load ord
 
 ## Interaction With Spawn Hooks
 
-[Spawn Hooks](spawn-hooks) take priority over rarity tiers. If a spawn hook maps
+[Spawn Hooks](spawn-hooks.md) take priority over rarity tiers. If a spawn hook maps
 the mob's spawn context to a profile, the rarity draw is skipped entirely for that
 mob. Rarity tiers fire only for contexts that have no hook (or are set to `null`
 in the hook file).

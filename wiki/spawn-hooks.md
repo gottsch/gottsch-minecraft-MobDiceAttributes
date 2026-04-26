@@ -1,6 +1,6 @@
 # Spawn Hooks
 
-Spawn hooks let you assign a [Spawn Profile](spawn-profiles) based on *how* a mob
+Spawn hooks let you assign a [Spawn Profile](spawn-profiles.md) based on *how* a mob
 spawned rather than by chance. This lets you make raid mobs always dangerous, or give
 spawner mobs slightly tighter rolls, regardless of what the rarity tier draw would
 have given them.
@@ -24,14 +24,14 @@ enable = true
 data/mobdiceattribs/spawn_hooks/<name>.json
 ```
 
-> Files must use the `mobdiceattribs` namespace. See [Spawn Profiles — Datapack Namespacing](spawn-profiles#datapack-namespacing).
+> Files must use the `mobdiceattribs` namespace. See [Spawn Profiles — Datapack Namespacing](spawn-profiles.md#datapack-namespacing).
 
 ---
 
 ## Hook File Format
 
 The file is a JSON object mapping spawn context names to profile IDs.
-Omit a context or set it to `null` to fall through to [Rarity Tiers](rarity-tiers).
+Omit a context or set it to `null` to fall through to [Rarity Tiers](rarity-tiers.md).
 
 ```json
 {
@@ -101,7 +101,7 @@ Spawn Hook (if context is mapped)
 ## Notes
 
 - Reloads on `/reload` — no restart needed.
-- Spawn type is captured in the `FinalizeSpawnEvent` and stored in the mob's NBT
-  as `mda_spawn_type`. You can verify it with `/mda inspect`.
+- Spawn type is captured on spawn and stored in the mob's NBT as `mda_spawn_type`.
+  You can verify it with `/mda inspect`.
 - If a hook references a profile that doesn't exist, no profile is applied and the
   mob rolls with default settings.

@@ -13,7 +13,7 @@ data/mobdiceattribs/difficulty_rules/<name>.json
 
 The feature is inert without any datapack files — no config flag required.
 
-> Files must use the `mobdiceattribs` namespace. See [Spawn Profiles — Datapack Namespacing](spawn-profiles#datapack-namespacing).
+> Files must use the `mobdiceattribs` namespace. See [Spawn Profiles — Datapack Namespacing](spawn-profiles.md#datapack-namespacing).
 
 ---
 
@@ -37,7 +37,7 @@ The feature is inert without any datapack files — no config flag required.
 
 ## How Multipliers Stack
 
-Difficulty multipliers stack multiplicatively with [Dimension Rule](dimension-rules)
+Difficulty multipliers stack multiplicatively with [Dimension Rules](dimension-rules.md)
 multipliers:
 
 ```
