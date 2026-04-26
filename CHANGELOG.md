@@ -111,6 +111,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `applyRolls()` gate order: mob whitelist/blacklist → dimension gate → difficulty gate → profile resolution → per-attribute rolls
 - Distance multiplier (health only) stacks on top of the combined dimension × difficulty multiplier
 - All `SimpleJsonResourceReloadListener` implementations now filter by `MDA.MOD_ID` namespace — only `data/mobdiceattribs/` files are loaded, preventing collisions with other mods
+- All eight attributes now store vanilla base values in NBT on first roll and reset to them on reroll — prevents compounding across multiple rerolls
+- `showName` config (default `false`) now gates name tag visibility for both profile names and elite names; names are still set on the mob for Jade/TOP hover
+- `[speed] enable` defaults to `true` with standard dice mechanics; speed profile overrides removed from legendary/rare after confirming compounding was the root cause
+- `/mda inspect` now outputs `Profile` and `Spawn type` NBT fields for debugging
+- `rarity_tiers/example.json` renamed to `rarity_tiers/default.json`
+- `FinalizeSpawnEvent` updated to top-level class (NeoForge 1.21.1 API change)
 
 ---
 

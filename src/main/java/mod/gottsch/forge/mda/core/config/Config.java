@@ -412,8 +412,9 @@ public class Config extends AbstractConfig {
 					.define("namePrefix", "Elite");
 
 			showName = builder
-					.comment(" When true, the elite mob's custom name is always visible above its head.")
-					.define("showName", true);
+					.comment(" When true, the named mob's custom name tag is always visible above its head.",
+							" Default false — most players use Jade or similar mods to inspect mobs.")
+					.define("showName", false);
 
 			builder.pop();
 		}

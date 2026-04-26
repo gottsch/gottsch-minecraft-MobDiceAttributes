@@ -169,7 +169,7 @@ public class DiceAttributeManger {
 			}
 		});
 		entity.setCustomName(name);
-		entity.setCustomNameVisible(true);
+		entity.setCustomNameVisible(Config.SERVER.eliteMobs.showName.get());
 		entity.getPersistentData().putBoolean("mda_named", true);
 	}
 
@@ -260,14 +260,19 @@ public class DiceAttributeManger {
 
 	public static void reroll(Entity entity) {
 		CompoundTag data = entity.getPersistentData();
+		LivingEntity living = (LivingEntity) entity;
+
+		resetAttribute(living, Attributes.MAX_HEALTH,      data, "mda_base_hp");
+		resetAttribute(living, Attributes.MOVEMENT_SPEED,  data, "mda_base_speed");
+		resetAttribute(living, Attributes.ATTACK_DAMAGE,   data, "mda_base_damage");
+		resetAttribute(living, Attributes.ATTACK_KNOCKBACK,data, "mda_base_knockback");
+		resetAttribute(living, Attributes.ARMOR,           data, "mda_base_armor");
+		resetAttribute(living, Attributes.ARMOR_TOUGHNESS, data, "mda_base_armor_toughness");
+		resetAttribute(living, Attributes.ATTACK_SPEED,    data, "mda_base_attack_speed");
+		resetAttribute(living, Attributes.FOLLOW_RANGE,    data, "mda_base_follow_range");
 
 		if (data.contains("mda_base_hp")) {
-			AttributeInstance attr = ((LivingEntity) entity).getAttribute(Attributes.MAX_HEALTH);
-			if (attr != null) {
-				double baseHp = data.getDouble("mda_base_hp");
-				attr.setBaseValue(baseHp);
-				((LivingEntity) entity).setHealth((float) baseHp);
-			}
+			living.setHealth((float) data.getDouble("mda_base_hp"));
 		}
 
 		data.remove("mda_hp_ratio");
@@ -282,11 +287,23 @@ public class DiceAttributeManger {
 		applyRolls(entity);
 	}
 
+	private static void resetAttribute(LivingEntity entity, net.minecraft.core.Holder<net.minecraft.world.entity.ai.attributes.Attribute> attribute,
+	                                    CompoundTag data, String nbtKey) {
+		if (data.contains(nbtKey)) {
+			AttributeInstance inst = entity.getAttribute(attribute);
+			if (inst != null) inst.setBaseValue(data.getDouble(nbtKey));
+		}
+	}
+
 	private static void rollSpeed(Entity entity, double multiplier, SpawnProfile profile) {
 		LivingEntity monster = (LivingEntity) entity;
 		AttributeInstance attribute = monster.getAttribute(Attributes.MOVEMENT_SPEED);
 		if (attribute != null) {
-			double speed = monster.getSpeed() * multiplier;
+			CompoundTag data = entity.getPersistentData();
+			if (!data.contains("mda_base_speed")) {
+				data.putDouble("mda_base_speed", attribute.getBaseValue());
+			}
+			double speed = data.getDouble("mda_base_speed") * multiplier;
 			if (speed <= 0D) return;
 			AttribOverride ov = profile.speed().merge(MobOverrideRegistry.lookup(entity.getType(), Attrib.SPEED));
 			int dice = resolveDice(ov, Attrib.SPEED, speed,
@@ -297,7 +314,6 @@ public class DiceAttributeManger {
 					ov.rangeFactor().orElse(Config.SERVER.speed.rangeFactor.get()),
 					ov.bonus().orElse(Config.SERVER.speed.bonus.get()));
 			attribute.setBaseValue(newValue);
-			monster.setSpeed((float) newValue);
 		}
 	}
 
@@ -305,7 +321,11 @@ public class DiceAttributeManger {
 		LivingEntity monster = (LivingEntity) entity;
 		AttributeInstance attribute = monster.getAttribute(Attributes.ATTACK_DAMAGE);
 		if (attribute != null) {
-			double damage = attribute.getBaseValue() * multiplier;
+			CompoundTag data = entity.getPersistentData();
+			if (!data.contains("mda_base_damage")) {
+				data.putDouble("mda_base_damage", attribute.getBaseValue());
+			}
+			double damage = data.getDouble("mda_base_damage") * multiplier;
 			if (damage <= 0D) return;
 			AttribOverride ov = profile.damage().merge(MobOverrideRegistry.lookup(entity.getType(), Attrib.DAMAGE));
 			int dice = resolveDice(ov, Attrib.DAMAGE, damage,
@@ -323,7 +343,11 @@ public class DiceAttributeManger {
 		LivingEntity monster = (LivingEntity) entity;
 		AttributeInstance attribute = monster.getAttribute(Attributes.ATTACK_KNOCKBACK);
 		if (attribute != null) {
-			double knockback = attribute.getBaseValue() * multiplier;
+			CompoundTag data = entity.getPersistentData();
+			if (!data.contains("mda_base_knockback")) {
+				data.putDouble("mda_base_knockback", attribute.getBaseValue());
+			}
+			double knockback = data.getDouble("mda_base_knockback") * multiplier;
 			if (knockback <= 0D) return;
 			AttribOverride ov = profile.knockback().merge(MobOverrideRegistry.lookup(entity.getType(), Attrib.KNOCKBACK));
 			int dice = resolveDice(ov, Attrib.KNOCKBACK, knockback,
@@ -341,7 +365,11 @@ public class DiceAttributeManger {
 		LivingEntity monster = (LivingEntity) entity;
 		AttributeInstance attribute = monster.getAttribute(Attributes.ARMOR);
 		if (attribute != null) {
-			double armor = attribute.getBaseValue() * multiplier;
+			CompoundTag data = entity.getPersistentData();
+			if (!data.contains("mda_base_armor")) {
+				data.putDouble("mda_base_armor", attribute.getBaseValue());
+			}
+			double armor = data.getDouble("mda_base_armor") * multiplier;
 			if (armor <= 0D) return;
 			AttribOverride ov = profile.armor().merge(MobOverrideRegistry.lookup(entity.getType(), Attrib.ARMOR));
 			int dice = resolveDice(ov, Attrib.ARMOR, armor,
@@ -359,7 +387,11 @@ public class DiceAttributeManger {
 		LivingEntity monster = (LivingEntity) entity;
 		AttributeInstance attribute = monster.getAttribute(Attributes.ARMOR_TOUGHNESS);
 		if (attribute != null) {
-			double toughness = attribute.getBaseValue() * multiplier;
+			CompoundTag data = entity.getPersistentData();
+			if (!data.contains("mda_base_armor_toughness")) {
+				data.putDouble("mda_base_armor_toughness", attribute.getBaseValue());
+			}
+			double toughness = data.getDouble("mda_base_armor_toughness") * multiplier;
 			if (toughness <= 0D) return;
 			AttribOverride ov = profile.armorToughness().merge(MobOverrideRegistry.lookup(entity.getType(), Attrib.ARMOR_TOUGHNESS));
 			int dice = resolveDice(ov, Attrib.ARMOR_TOUGHNESS, toughness,
@@ -377,7 +409,11 @@ public class DiceAttributeManger {
 		LivingEntity monster = (LivingEntity) entity;
 		AttributeInstance attribute = monster.getAttribute(Attributes.ATTACK_SPEED);
 		if (attribute != null) {
-			double speed = attribute.getBaseValue() * multiplier;
+			CompoundTag data = entity.getPersistentData();
+			if (!data.contains("mda_base_attack_speed")) {
+				data.putDouble("mda_base_attack_speed", attribute.getBaseValue());
+			}
+			double speed = data.getDouble("mda_base_attack_speed") * multiplier;
 			if (speed <= 0D) return;
 			AttribOverride ov = profile.attackSpeed().merge(MobOverrideRegistry.lookup(entity.getType(), Attrib.ATTACK_SPEED));
 			int dice = resolveDice(ov, Attrib.ATTACK_SPEED, speed,
@@ -395,7 +431,11 @@ public class DiceAttributeManger {
 		LivingEntity monster = (LivingEntity) entity;
 		AttributeInstance attribute = monster.getAttribute(Attributes.FOLLOW_RANGE);
 		if (attribute != null) {
-			double range = attribute.getBaseValue() * multiplier;
+			CompoundTag data = entity.getPersistentData();
+			if (!data.contains("mda_base_follow_range")) {
+				data.putDouble("mda_base_follow_range", attribute.getBaseValue());
+			}
+			double range = data.getDouble("mda_base_follow_range") * multiplier;
 			if (range <= 0D) return;
 			AttribOverride ov = profile.followRange().merge(MobOverrideRegistry.lookup(entity.getType(), Attrib.FOLLOW_RANGE));
 			int dice = resolveDice(ov, Attrib.FOLLOW_RANGE, range,

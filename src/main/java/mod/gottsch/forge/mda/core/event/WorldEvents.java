@@ -21,7 +21,7 @@ import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
 import net.neoforged.neoforge.event.entity.living.LivingExperienceDropEvent;
-import net.neoforged.neoforge.event.entity.living.MobSpawnEvent;
+import net.neoforged.neoforge.event.entity.living.FinalizeSpawnEvent;
 
 /**
  *
@@ -38,7 +38,7 @@ public class WorldEvents {
 	}
 
 	@SubscribeEvent
-	public static void onFinalizeSpawn(MobSpawnEvent.FinalizeSpawn event) {
+	public static void onFinalizeSpawn(FinalizeSpawnEvent event) {
 		// Store spawn type in NBT so applyRolls() can resolve the correct spawn hook profile.
 		Mob mob = event.getEntity();
 		mob.getPersistentData().putString("mda_spawn_type", event.getSpawnType().name());
