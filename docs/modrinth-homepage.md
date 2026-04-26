@@ -101,16 +101,16 @@ A full `server.toml` config controls every attribute independently:
 
 | Page | Link |
 |------|------|
-| Home | [Wiki](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/tree/neoforge-1.21.1-main/wiki/home.md) |
-| Dice Formula | [How `xdn+b` works](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/tree/neoforge-1.21.1-main/wiki/dice-formula.md) |
-| Spawn Profiles | [Profile format & fields](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/tree/neoforge-1.21.1-main/wiki/spawn-profiles.md) |
-| Rarity Tiers | [Weighted pool setup](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/tree/neoforge-1.21.1-main/wiki/rarity-tiers.md) |
-| Spawn Hooks | [Context-based profiles](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/tree/neoforge-1.21.1-main/wiki/spawn-hooks.md) |
-| Mob Overrides | [Per-mob dice overrides](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/tree/neoforge-1.21.1-main/wiki/mob-overrides.md) |
-| Dimension Rules | [Scale by dimension](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/tree/neoforge-1.21.1-main/wiki/dimension-rules.md) |
-| Difficulty Rules | [Scale by difficulty](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/tree/neoforge-1.21.1-main/wiki/difficulty-rules.md) |
-| Configuration | [Full config reference](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/tree/neoforge-1.21.1-main/wiki/configuration.md) |
-| Commands | [/mda reroll & inspect](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/tree/neoforge-1.21.1-main/wiki/commands.md) |
+| Home | [Wiki](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/blob/neoforge-1.21.1-main/wiki/home.md) |
+| Dice Formula | [How `xdn+b` works](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/blob/neoforge-1.21.1-main/wiki/dice-formula.md) |
+| Spawn Profiles | [Profile format & fields](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/blob/neoforge-1.21.1-main/wiki/spawn-profiles.md) |
+| Rarity Tiers | [Weighted pool setup](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/blob/neoforge-1.21.1-main/wiki/rarity-tiers.md) |
+| Spawn Hooks | [Context-based profiles](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/blob/neoforge-1.21.1-main/wiki/spawn-hooks.md) |
+| Mob Overrides | [Per-mob dice overrides](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/blob/neoforge-1.21.1-main/wiki/mob-overrides.md) |
+| Dimension Rules | [Scale by dimension](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/blob/neoforge-1.21.1-main/wiki/dimension-rules.md) |
+| Difficulty Rules | [Scale by difficulty](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/blob/neoforge-1.21.1-main/wiki/difficulty-rules.md) |
+| Configuration | [Full config reference](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/blob/neoforge-1.21.1-main/wiki/configuration.md) |
+| Commands | [/mda reroll & inspect](https://github.com/gottsch/gottsch-minecraft-MobDiceAttributes/blob/neoforge-1.21.1-main/wiki/commands.md) |
 
 ---
 
