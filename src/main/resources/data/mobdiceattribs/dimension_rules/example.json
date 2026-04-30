@@ -1,0 +1,9 @@
+{
+	"_comment": "Example dimension rule. Copy into any datapack to control rolling per dimension. 'enable' defaults to true, 'multiplier' defaults to 1.0. Omit either field to use the default. Multiple dimensions can share one file via the 'targets' list.",
+	"targets": [
+		"minecraft:the_nether",
+		"minecraft:the_end"
+	],
+	"enable": true,
+	"multiplier": 1.0
+}

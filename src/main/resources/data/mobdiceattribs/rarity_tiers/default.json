@@ -1,0 +1,9 @@
+{
+  "_comment": "Example rarity tier pool. Weights do not need to sum to 100 — probability is proportional.",
+  "tiers": [
+    { "profile": "mobdiceattribs:common",    "weight": 60 },
+    { "profile": "mobdiceattribs:uncommon",  "weight": 25 },
+    { "profile": "mobdiceattribs:rare",      "weight": 10 },
+    { "profile": "mobdiceattribs:legendary", "weight":  5 }
+  ]
+}

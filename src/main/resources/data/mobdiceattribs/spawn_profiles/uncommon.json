@@ -1,0 +1,6 @@
+{
+  "_comment": "Uncommon tier — slightly above-average rolls.",
+  "health":  { "dice": 8, "rangeFactor": 1.1 },
+  "speed":   { "dice": 6, "rangeFactor": 1.1 },
+  "damage":  { "dice": 6, "rangeFactor": 1.1 }
+}

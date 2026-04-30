@@ -1,0 +1,5 @@
+{
+  "_comment": "Example spawn hooks. Omit a context or set it to null to use the rarity tier system for that context instead.",
+  "_comment2": "Valid contexts: natural, spawner, chunk_generation, structure, breeding, mob_summoned, jockey, event, conversion, reinforcement, triggered, bucket, spawn_egg, command, patrol",
+  "event":   "mobdiceattribs:example_legendary"
+}
